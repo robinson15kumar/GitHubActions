@@ -1,16 +1,23 @@
 name : myWorkflowPractice
 on: workflow_dispatch
 
+env:
+  first_name: Ram
+
 jobs:
   myfirstjob:
+    env:
+      last_name: Shyam
+    
     name: my first job
     runs-on: ubuntu-latest
     steps:
     - name: checkout
       uses: actions/checkout@v6.0.3
-     
+    
     - name: first task
-      run: echo "Hello World!"
+      run: echo "$first_name and $last_name"
+      
     - name: list file
       run: ls -lart
       
