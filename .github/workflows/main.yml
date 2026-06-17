@@ -1,23 +1,22 @@
-name : myWorkflowPractice
-on: push
+# File: .github/workflows/main.yml
 
-# env:
-#   first_name: Ram
+on: [push]
+
+name: Run Azure Login With a Service Principal Secret
 
 jobs:
-  myfirstjob:
-    # env:
-    #   last_name: Shyam
-    
-    name: my first job
+
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@v6.0.3
-    
-    - name: first task
-      run: echo "${{vars.first_name}} and ${{secrets.last_name}}"
-      
-    - name: list file
-      run: ls -lart
-      
+
+    - uses: azure/login@v3
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az account show
