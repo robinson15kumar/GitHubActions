@@ -1,8 +1,14 @@
 # File: .github/workflows/main.yml
 
-on: [push]
-
 name: Run Azure Login With a Service Principal Secret
+on:
+  # Triggers the workflow automatically on a push to the main branch
+  push:
+    branches:
+      - main
+      
+  # Triggers the workflow manually via the GitHub UI
+  workflow_dispatch:
 
 jobs:
 
