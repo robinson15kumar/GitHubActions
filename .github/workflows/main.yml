@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v6.0.3
     
     - name: first task
-      run: echo "$first_name and $last_name"
+      run: echo "${{vars.first_name}} and $last_name"
       
     - name: list file
       run: ls -lart
