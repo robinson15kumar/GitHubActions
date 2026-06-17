@@ -1,8 +1,8 @@
 name : myWorkflowPractice
-on: workflow_dispatch
+on: push
 
-env:
-  first_name: Ram
+# env:
+#   first_name: Ram
 
 jobs:
   myfirstjob:
